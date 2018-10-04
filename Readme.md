@@ -66,13 +66,13 @@ Article model
 Without configuration:
 
 ```bash
-python morph_analyzer.py -m '{"content": "Donald Trump, az amerikai elnök tárgyalt Vladimir Putinnal. Putin azonban nem értett egyet Trumppal."}'
+python morph_analyzer.py -m '{"content": "Donald Trump, az amerikai elnök tárgyalt Vladimir Putinnal. Trump nem értett egyet Putinnal."}'
 ```
 
 With stop_words:
 
 ```bash
-python morph_analyzer.py -m '{"content": "Donald Trump, az amerikai elnök tárgyalt Vladimir Putinnal."}' -c '{"stop_words": ["az", ",", "."]}'
+python morph_analyzer.py -m '{"content": "Donald Trump, az amerikai elnök tárgyalt Vladimir Putinnal. Trump nem értett egyet Putinnal."}' -c '{"stop_words": ["az", ",", "."]}'
 ```
 
 With person_dictionary:

@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+"70bfa46" = {file = "https://github.com/oroszgy/hunlp/releases/download/0.2/hunlp-0.2.0.tar.gz"}
+requests = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"

@@ -18,6 +18,9 @@ This project is heavily depends on hungarian morphological analyzers. Thanks for
 2. docker pull oroszgy/hunlp
 3. docker run -it -m 8G -p 9090:9090 oroszgy/hunlp  (wait until the server started inside the container: [Thread-1] INFO org.eclipse.jetty.server.Server - Started)
 
+Caveats:
+Docker machine should have been configured to enable run the docker containers with increased ram size.
+
 This steps is extracted from the following nlp project (that this scripts depends on): https://github.com/oroszgy/hunlp
 
 # Usage
@@ -66,13 +69,13 @@ Article model
 Without configuration:
 
 ```bash
-python morph_analyzer.py -m '{"content": "Donald Trump, az amerikai elnök tárgyalt Vladimir Putinnal. Putin azonban nem értett egyet Trumppal."}'
+python morph_analyzer.py -m '{"content": "Donald Trump, az amerikai elnök tárgyalt Vladimir Putinnal. Trump nem értett egyet Putinnal."}'
 ```
 
 With stop_words:
 
 ```bash
-python morph_analyzer.py -m '{"content": "Donald Trump, az amerikai elnök tárgyalt Vladimir Putinnal."}' -c '{"stop_words": ["az", ",", "."]}'
+python morph_analyzer.py -m '{"content": "Donald Trump, az amerikai elnök tárgyalt Vladimir Putinnal. Trump nem értett egyet Putinnal."}' -c '{"stop_words": ["az", ",", "."]}'
 ```
 
 With person_dictionary:

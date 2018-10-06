@@ -53,7 +53,8 @@ def strip_accents(s):
                   if unicodedata.category(c) != 'Mn')
 
 def normalize(word):
-    return strip_accents((word.lower()).strip())
+    # return strip_accents((word.lower()).strip())
+    return (word.lower()).strip()
 
 def inspect(obj):
     for property, value in vars(obj).items():
@@ -73,17 +74,26 @@ def lemmatize_persons(persons, lemma_dict):
 
     return lemmatized_persons
 
+def morph(tok):
+    sep = ","
+    morph_line = tok.text + sep + tok.lemma + sep + tok.tag + sep + tok.dep + sep + tok.entity_type
+    print(morph_line)
+    return morph_line
+
+
 def extend_model(model, stop_words, lemma_dict):
     content = model['content']
     doc = nlp(content)
     lemmas = []
     persons = []
+    morphs = []
     person_candidate = ""
     for sent in doc:
         for tok in sent:
             if tok.lemma in stop_words:
                 continue
             lemmas.append(normalize(tok.lemma))
+            morphs.append(morph(tok))
             if tok.entity_type == "I-PER":
                 person_candidate += tok.lemma + " "
             elif person_candidate != "":
@@ -91,6 +101,7 @@ def extend_model(model, stop_words, lemma_dict):
                 person_candidate = ""
     model['lemmas'] = lemmas
     model['persons'] = lemmatize_persons(persons, lemma_dict)
+    model['morph'] = morphs
 
     return model
 

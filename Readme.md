@@ -59,8 +59,9 @@ Article model
     "tags": [], #optional
     "description": "..." #optional
 
-    "lemmas": [], # NEW INFO
-    "persons": [] # NEW INFO
+    "lemmas": [], # list of lemmas
+    "persons": [], # list of persons
+    "morph": [] # list of comma separated lines that contains the words morph analysis: text,lemma,tag,dep,entity_type
 }"
 ```
 

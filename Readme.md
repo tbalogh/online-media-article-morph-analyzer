@@ -109,6 +109,7 @@ If no configuration given than it won't filter or change anything.
 
 # Known issues
 
+## Named Entity Recognition
 The Named Entity Recognition does not work perfectly cause it does not provide all the information to decide the border of the named entities so some named entities will be mixed together (see the example below).
 
 
@@ -121,3 +122,6 @@ This does not work:
 ```bash
 python morph_analyzer.py -m '{"content": "Az amerikai elnök, Donald Trump Vladimir Putinnal tárgyalt."}'
 ```
+
+## Pipenv install failed
+If you use pipenv and the install failed then follow the setup steps.

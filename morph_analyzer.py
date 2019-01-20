@@ -77,7 +77,6 @@ def lemmatize_persons(persons, lemma_dict):
 def morph(tok):
     sep = ","
     morph_line = tok.text + sep + tok.lemma + sep + tok.tag + sep + tok.dep + sep + tok.entity_type
-    print(morph_line)
     return morph_line
 
 
@@ -105,7 +104,7 @@ def extend_model(model, stop_words, lemma_dict):
 
     return model
 
-def process(text, config_param):                                                                                                                        
+def process(text, config_param):
     config = read_config(config_param)
     validate_config(config)
     model = json.loads(text)

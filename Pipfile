@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 "70bfa46" = {file = "https://github.com/oroszgy/hunlp/releases/download/0.2/hunlp-0.2.0.tar.gz"}
 requests = "*"
+pymongo = "*"
+pandas = "*"
 
 [dev-packages]
 
